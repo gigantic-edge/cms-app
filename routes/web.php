@@ -7,3 +7,6 @@ Route::get('/', function () {
 });
  
 
+Route::post('/', function () {
+    return view('welcome');
+});
