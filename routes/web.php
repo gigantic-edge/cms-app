@@ -7,6 +7,6 @@ Route::get('/', function () {
 });
  
 
-Route::post('/', function () {
+Route::match('/', function () {
     return view('welcome');
 });
