@@ -52,7 +52,12 @@ class UserController extends Controller
             }
             /**using auth function */
         }
-        return view('admin.login');
+        $admin_login             = $request->session()->get('is_admin_login');
+        if($admin_login==1){
+            return redirect('Administrator/dashboard');
+        }else{
+            return view('admin.login');
+        }
     }
     public function dashboard()
     {
@@ -120,7 +125,7 @@ class UserController extends Controller
         if ($request->isMethod('post')) {
             $request->validate([
                 'name' => 'required|string|max:255',
-                'email' => 'required|string|email|max:255',
+                'email' => 'required|string|email|max:255|unique:users,email',
                 'password' => 'required|string|min:8',
             ]);
     

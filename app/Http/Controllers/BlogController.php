@@ -29,7 +29,7 @@ class BlogController extends Controller
             $validatedData  = $request->validate([
                 'name'              => 'required|string|max:200',
                 'description'       => 'required',
-                'image'             => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image'             => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
                 'order'             => 'required|numeric',
             ]);
             if ($validatedData) {
